@@ -64,7 +64,7 @@ To give it a try you can copy/paste the following command into your Mac OS termi
 or *nix shell. Just use your email address and password instead of
 `your_email_address@example.com` and `your-password`:
 
-```Sh
+```sh
 curl --header 'Content-Type: application/json' --data '{"email": "your_email_address@example.com", "password": "your-password"}' --dump-header - https://hiptest.net/api/auth/sign_in
 ```
 
@@ -281,6 +281,37 @@ smashing start
 ```
 
 If everything worked fine you should now be able to navigate to
-http://localhost:3030 and see a sample dashboard. If not please
+http://localhost:3030 and see a sample dashboard.
+
+![Sample Dashboard](tutorial_files/screenshots/smashing-start.png)
+
+If not please
 consider taking a look on the
 [Smashing GitHub project repository](https://github.com/Smashing/smashing).
+
+### Create a dashboard for Hiptest Test runs
+
+First create a new file in the `dashboards` folder named `hiptest.erb`
+with the following content:
+
+```erb
+<% content_for :title do %>Hiptest dashboard<% end %>
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="tr-ci" data-view="Text" data-title="CI" data-text=""></div>
+    </li>
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="tr-sprint-1" data-view="Text" data-title="Sprint 1" data-text=""></div>
+    </li>
+  </ul>
+</div>
+```
+
+This create a new dashboard titled "Hiptest dashboard" with two tiles.
+Those tiles will show us the status of two test runs for the CASH WITHDRAWAL
+sample project.
+
+If you navigate to http://localhost:3030/hiptest that should look like that:
+
+![Hiptest blank dashboard](tutorial_files/screenshots/hiptest-blank-dashboard.png)
