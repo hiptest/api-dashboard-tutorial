@@ -1,10 +1,11 @@
 require 'net/http'
 require 'json'
 
-PROJECT_ID = 67155
-ACCESS_TOKEN = 'xcxIyyffZDy-UJkfeXPYgg'
-CLIENT_ID = 'ikxIDJvmOTTPRSMtRV305Q'
-UID = 'areeves@kaonet-fr.net'
+# Set the following constants with your data
+PROJECT_ID = 0
+ACCESS_TOKEN = 'your-access-token'
+CLIENT_ID = 'your-client-id'
+UID = 'your-uid'
 
 PROJECT_URL = "https://hiptest.net/api/projects/#{PROJECT_ID}/test_runs"
 
