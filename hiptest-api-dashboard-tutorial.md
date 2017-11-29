@@ -422,10 +422,10 @@ SCHEDULER.every '30s' do
 end
 ```
 
-This request for test runs statuses to the API then refresh the tiles accordingly.
+This code requests the API for test runs statuses then refresh the tiles accordingly.
 
 If you stop the dashboard, start it again, and wait for the tiles to be refreshed,
-that should look like this:
+that should looks like this:
 
 ![Hiptest orange dashboard](tutorial_files/screenshots/hiptest-dashboard-uncolored.png)
 
