@@ -262,9 +262,8 @@ curl --header 'Accept: application/vnd.api+json; version=1' --header 'access-tok
 Now that we know how to request the API and which endpoint can give
 us the statuses of our test runs, we can build our dashboard.
 
-Note: the rest of this tutorial is the same whether your are running
-Microsoft Windows, Mac OS or Linux. You just have Ruby and the RubyGem
-package manager to be installed.
+Note: the rest of this tutorial suppose you have Ruby and the RubyGem
+package manager installed and ready to go.
 
 ### Setup your dashboard with smashing
 
@@ -429,3 +428,127 @@ that should looks like this:
 
 ![Hiptest orange dashboard](tutorial_files/screenshots/hiptest-dashboard-uncolored.png)
 
+### Add some colors to the dashboard
+
+Our dashboard could be more fun with colors that depends on the displayed status.
+To do so we need to create a new widget. Create a new directory in the `widgets`
+folder named `status`. Create a new file `status.html` with that content:
+
+```html
+<h1 class="title" data-bind="title"></h1>
+
+<h3 data-bind="text"></h3>
+
+<p class="more-info" data-bind="moreinfo"></p>
+
+<p class="updated-at" data-bind="updatedAtMessage"></p>
+```
+
+Create a file `status.scss` with that content:
+
+```scss
+// ----------------------------------------------------------------------------
+// Sass declarations
+// ----------------------------------------------------------------------------
+$passed-color:      #2ECC9A;
+$failed-color:      #DF182A;
+$wip-color:         #FFC300;
+$blocked-color:     #8B0000;
+$retest-color:      #FF7603;
+$skipped-color:     #455982;
+
+$background-color:  #8A8A8A;
+
+$title-color:       rgba(255, 255, 255, 0.7);
+$moreinfo-color:    rgba(255, 255, 255, 0.7);
+
+// ----------------------------------------------------------------------------
+// Widget-status styles
+// ----------------------------------------------------------------------------
+.widget-status {
+
+  background-color: $background-color;
+
+  .title {
+    color: $title-color;
+  }
+
+  .more-info {
+    color: $moreinfo-color;
+  }
+
+  .updated-at {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+
+  &.large h3 {
+    font-size: 65px;
+  }
+
+  &.status-passed {
+    background-color: $passed-color;
+  }
+
+  &.status-failed {
+    background-color: $failed-color;
+  }
+
+  &.status-wip {
+    background-color: $wip-color;
+  }
+
+  &.status-blocked {
+    background-color: $blocked-color;
+  }
+
+  &.status-retest {
+    background-color: $retest-color;
+  }
+
+  &.status-skipped {
+    background-color: $skipped-color;
+  }
+}
+```
+
+And a file `status.coffee` with that content:
+
+```coffee
+class Dashing.Status extends Dashing.Widget
+  onData: (data) ->
+    if data.text
+      className = ""
+      switch data.text.toLowerCase()
+        when "passed" then className = "passed"
+        when "failed" then className = "failed"
+        when "work in progress" then className = "wip"
+        when "blocked" then className = "blocked"
+        when "retest" then className = "retest"
+        when "skipped" then className = "skipped"
+
+      $(@get('node')).attr 'class', (i, c) ->
+        c.replace /\bstatus-\$+/g, ''
+
+      $(@get('node')).addClass "status-#{className}"
+```
+
+Finally update `dashboards/hiptest.erb` to use the new widget instead of the `Text` one:
+
+```erb
+<% content_for :title do %>Hiptest dashboard<% end %>
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="tr-1" data-view="Status" data-title="TR-1" data-text=""></div>
+    </li>
+    <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
+      <div data-id="tr-2" data-view="Status" data-title="TR-2" data-text=""></div>
+    </li>
+  </ul>
+</div>
+```
+
+You can restart your dashboard and refresh your browser. That should look like the following:
+
+![Hiptest colored dashboard](tutorial_files/screenshots/hiptest-dashboard-colored.png)
