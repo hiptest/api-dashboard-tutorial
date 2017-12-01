@@ -38,9 +38,9 @@ you can eventually create a new account to benefit of a 30 days trial period.
 You can easily generate your credentials on Hiptest.net. Sign-in to your account
 then go to your profile page. Click the `Generate new API credentials` button.
 
-![Hiptest profile page](https://hiptest.github.io/slate/images/getting-started/doc-api-cred-01.png)
+![Hiptest profile page](tutorial_files/screenshots/hiptest-api-credentials.png)
 
-![Hiptest credentials](https://hiptest.github.io/slate/images/getting-started/doc-api-cred-02.png)
+![Hiptest credentials](tutorial_files/screenshots/hiptest-profile-page.png)
 
 #### Sign-in and generate credentials using Hiptest API
 
