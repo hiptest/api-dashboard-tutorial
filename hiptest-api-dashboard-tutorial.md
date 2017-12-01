@@ -552,3 +552,9 @@ Finally update `dashboards/hiptest.erb` to use the new widget instead of the `Te
 You can restart your dashboard and refresh your browser. That should look like the following:
 
 ![Hiptest colored dashboard](tutorial_files/screenshots/hiptest-dashboard-colored.png)
+
+## Final words and conclusion
+
+Hiptest API may help you to do much more than report statuses of your test runs on a dashboard. All endpoints are listed in the [API documentation](https://hiptest.github.io/slate/). Share with us how you use it on [Hiptest User Group](https://answers.hiptest.net/)!
+
+You can also take a look on [our Trello Backlog](https://trello.com/b/sSdBSlL0/cooking-up-for-the-coming-months) to see what is planned to be done in the coming months. If something seems to be missing for you feel free to request for the feature, still on [Hiptest User Group](https://answers.hiptest.net/) ;)
