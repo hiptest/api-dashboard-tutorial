@@ -16,8 +16,8 @@ on HTTP requests, and eventually a tool like CURL to be able to request the
 API for test purpose.
 
 For the dashboard part we will use [smashing](https://github.com/Smashing/smashing).
-If you want to test it by yourself you'll need Ruby to be installed and ready
-to go on your computer. If you're not a Ruby developer don't worry: there is
+If you want to test it by yourself you will need Ruby to be installed and ready
+to go on your computer. If you are not a Ruby developer don't worry: there is
 very little code and it is really easy to read and to understand.
 
 ## Presentation of the API
@@ -28,7 +28,7 @@ specification. The documentation is available at
 
 ### Authentication
 
-Before anything else we'll need to authenticate and to generate credentials
+Before anything else we will need to authenticate and to generate credentials
 to be able to use the API. However it is not available to free, non open-source
 subscription. If you would like to test it but only benefit from a free pack
 you can eventually create a new account to benefit of a 30 days trial period.
@@ -105,7 +105,7 @@ uid: you_email_address@example.com
 
 If you sign-in to Hiptest using GitHub or Google and don't have a password
 then sign-out Hiptest and follow the process to reset your password. That way
-you'll be able to create a password for your account and to sign-in using it
+you will be able to create a password for your account and to sign-in using it
 in addition to GitHub or Google.
 
 #### Final notice about the credentials
