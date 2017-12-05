@@ -30,8 +30,9 @@ specification. The documentation is available at
 
 Before anything else we will need to authenticate and to generate credentials
 to be able to use the API. However it is not available to free, non open-source
-subscription. If you would like to test it but only benefit from a free pack
-you can eventually create a new account to benefit of a 30 days trial period.
+subscription. If you are in a free plan and do not have access to the APIs, feel
+free to contact Hiptest support by email and we will provide a solution for this 
+issue.
 
 #### Generate credentials using Hiptest UI
 
